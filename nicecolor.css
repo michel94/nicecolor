@@ -1,0 +1,9 @@
+/* CSS declarations go here */
+
+input[type="color"].custom {
+  	padding: 0;
+	border: none;
+	height: 50px;
+	width: 50px;
+	vertical-align: middle;
+}

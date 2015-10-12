@@ -1,0 +1,67 @@
+<head>
+  <title>Nice Color!</title>
+  <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+</head>
+
+<body>
+  {{> Main}}
+
+</body>
+
+
+<template name="Main">
+  <ul class="nav nav-tabs">
+	  <li class="{{isTrainSelected}}" id="trainTab"> <a href="#">Train</a> </li>
+	  <li class="{{isTestSelected}}" id="testTab"><a href="#">Test</a> </li>
+	</ul>
+
+	{{#if train}}
+		{{> Train}}
+	{{/if}}
+
+	{{#if test}}
+		{{> Test}}
+	{{/if}}
+
+</template>
+
+<template name="Train">
+  <div class="container">
+    <div class="form-group">
+    	    <input type="color" name="cp2" value="{{randomColor}}" id="trainColor" class="custom">
+      	</div>
+	</div>
+
+	Does this color look nice?
+	<button type="button" class="btn btn-success" id="yes">Yes!</button>
+	<button type="button" class="btn btn-warning" id="meh">Meh...</button>
+	<button type="button" class="btn btn-danger" id="no">Nope</button>
+</template>
+
+<template name="Test">
+  <div class="container">
+    <div class="form-group">
+    	    <input type="color" name="cp2" value="#FFFFFF" class="custom" id="colorSelector">
+      	</div>
+	</div>
+
+	<div class="panel panel-default">
+  <div class="panel-body" id="conclusion">
+    {{> Conclusion}}
+  </div>
+</div>
+
+</template>
+
+<template name="Conclusion">
+	{{#if is 0}}
+		Uh, no... <i class="fa fa-2x fa-hand-paper-o"></i>
+	{{else}} {{#if is 1}}
+		Well, maybe. <i class="fa fa-2x fa-thumbs-o-down"></i>
+	{{else}} {{#if is 2}}
+		Definitely yes! <i class="fa fa-2x fa-thumbs-o-up"></i>
+	{{/if}} {{/if}} {{/if}}
+
+</template>
+
+
